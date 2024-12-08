@@ -247,11 +247,11 @@
 \newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
-% For elements of honor
-\newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+% For elements of award
+\newcommand*{\awardtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\awardpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\awarddatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\awardlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
@@ -568,8 +568,8 @@
   \end{tabular*}
 }
 
-% Define an environment for cvhonor
-\newenvironment{cvhonors}{
+% Define an environment for cvaward
+\newenvironment{cvawards}{
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
@@ -579,11 +579,21 @@
   \end{center}
 }
 % Define a line of cv information(honor, award or something else)
-% Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
-\newcommand*{\cvhonor}[4]{
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3}
+% Usage: \cvaward{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvaward}[4]{
+  \awarddatestyle{#4} & \awardpositionstyle{#1}, \awardtitlestyle{#2} & \awardlocationstyle{#3}
   \\
 }
+
+% Define an environment for languages with extra margin
+\newenvironment{languages}
+  {\vspace{1ex} \begin{cvitems}} % Adds space above the list
+  {\end{cvitems} \vspace{1ex}} % Adds space below the list
+
+\newcommand{\cvlanguage}[2]{
+  \item {\textbf{#1}: #2}
+}
+
 
 % Define an environment for cvskill
 \newenvironment{cvskills}{
